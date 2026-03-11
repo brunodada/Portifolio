@@ -34,3 +34,12 @@ const observer = new IntersectionObserver(
 revealElements.forEach((element) => {
   observer.observe(element);
 });
+
+document.addEventListener("click", (event) => {
+  const isClickInsideMenu = menu.contains(event.target);
+  const isClickOnButton = menuToggle.contains(event.target);
+
+  if (!isClickInsideMenu && !isClickOnButton) {
+    menu.classList.remove("active");
+  }
+});
